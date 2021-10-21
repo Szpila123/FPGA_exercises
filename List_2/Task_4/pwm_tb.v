@@ -5,7 +5,7 @@ module testbench;
     wire [15:0] cnt;
 
 
-    pwm pwm1(.top(top), .comp(comp), .clk(clk), .rst(rst), .pol(pol), .mode(mode), .out(out), .counter(cnt));
+    pwm pwm1(.top(top), .comp(comp), .clk(clk), .rst(rst), .pol(pol), .mode(mode), .out(out), .out_counter(cnt));
     initial begin
         clk = 0;
         pol = 0;
