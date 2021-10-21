@@ -1,7 +1,6 @@
 // Bartosz Szpila
 // 20.10.2021
 
-
 module testbench;
     function automatic integer grey_code(input integer num);
         grey_code = num ^ (num >> 1);
