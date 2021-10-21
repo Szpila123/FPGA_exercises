@@ -1,6 +1,6 @@
 module testbench;
     reg clk, rst, dir, zero; 
-    wire [16:0] out;
+    wire [15:0] out;
 
     two_way_counter twc(.clk(clk), .rst(rst), .dir(dir), .zero(zero), .out(out));
     initial begin
