@@ -1,5 +1,4 @@
 module BCD_ADD_SUB(input oper, input [7:0] word1, input[15:0] word2 , output [15:0] result);
-wire [9:0] sub;
 wire [14:0] buffer;
 wire [2:0] carry;
 
@@ -19,7 +18,7 @@ assign carry[2] = buffer[14:10] > 5'b1001;
 assign result[3:0] = carry[0] ? (oper ? buffer[4:0] + 5'b1010 : buffer[4:0] - 5'b1010) : buffer[4:0];
 assign result[7:4] = carry[1] ? (oper ? buffer[9:5] + 5'b1010 : buffer[9:5] - 5'b1010) : buffer[9:5];
 assign result[11:8] = carry[2] ? (oper ? buffer[14:10] + 5'b1010 : buffer[14:10] - 5'b1010) : buffer[14:10];
-assign result[15:12] = oper ? {word2[15:12]} - {4'b0, carry[2]} : {1'b0, word2[15:12]} + {4'b0, carry[2]};
+assign result[15:12] = oper ? word2[15:12] - {3'b0, carry[2]} : word2[15:12] + {3'b0, carry[2]};
 endmodule
 
 module BCD_Calc(input rst, input [2:0] oper, input [7:0] in_nums, output [15:0] out_nums);
